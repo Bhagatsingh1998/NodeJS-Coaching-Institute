@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(session({secret:'j2b3v543yb3hg43vu&%Gbv&IRFt5&^wqfoo9a8&G^FQ#VYCe', saveUninitialized: false, resave:false, useFindAndModify: false}));
+app.use(session({secret:'nodeApp', saveUninitialized: false, resave:false, useFindAndModify: false}));
 
 app.use(AuthRoutes);
 app.use(StudentRoutes);
@@ -43,10 +43,9 @@ app.use((req, res)=>{
 
 app.listen(9000);
 
-mongoose.connect('mongodb+srv://sourav98:tCMmjBJqG12kDgZR@cluster0-12p2n.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://owner:owner@nodeapp-oke9f.mongodb.net/test?authSource=admin&replicaSet=nodeApp-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true', {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
-    console.log('Connected to Database!');
-
+    console.log('Connected at 9000!');
 })
 .catch((err)=>{
     console.log('Error in connecting to database!');
